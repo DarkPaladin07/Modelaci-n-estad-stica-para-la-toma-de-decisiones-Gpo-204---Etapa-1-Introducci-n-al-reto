@@ -1,0 +1,103 @@
+---
+title: "Etapa1"
+author: "Carlos Cuéllar Solís"
+date: "2024-09-19"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE)
+```
+
+Equipo 7
+Anton De la  Garza Tamez - A01178310
+Arturo Camacho Apolonio - A00838446
+Carlos Cuéllar Solís - A01571619
+Diego Octavio Arias Incháustegui - A00838285
+Jorge Alfonso Andujo Valdez - A01563535
+
+25 de septiembre del 2024
+
+Gpo 204
+
+## Lee la base de datos
+
+Lectura de base de datos y diccionarios
+- Utilizando el comando read.csv(), leemos tanto la base de datos como los diccionarios
+
+```{r, echo=FALSE}
+M19 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2019.csv")
+M20 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2020.csv")
+M21 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2021.csv")
+M22 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2022.csv")
+M23 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2023.csv")
+M24 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Datos_molec_2024.csv")
+
+Dicc20 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2019.csv")
+Dicc19 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2020.csv")
+Dicc21 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2021.csv")
+Dicc22 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2022.csv")
+Dicc23 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2023.csv")
+Dicc24 = read.csv("/Users/carloscuellarsol/Desktop/Tecnológico de Monterrey/SEMESTRE 3/Modelación estadística para la toma de decisiones/RETO/Diccionario_molec_2024.csv")
+```
+
+## Explora la base de datos
+
+Estructura de los datos
+- Utilizando el comando View(), vemos la estructura de los datos.
+
+```{r, echo=FALSE}
+View(M19)
+View(M20)
+View(M21)
+View(M22)
+View(M23)
+View(M24)
+```
+
+Distintos aspectos de los datos y variables
+- Utilizando el comando dim(), revisamos la dimensión del dataset
+
+```{r, echo=FALSE}
+print("Filas/Columnas")
+dim(M19)
+dim(M20)
+dim(M21)
+dim(M22)
+dim(M23)
+dim(M24)
+```
+
+- Utilizando el comando str(), describimos claramente las variables, incluyendo su nombre, descripción, tipo (categórico/Numérico) y valores posibles que puede tomar.
+
+```{r, echo=FALSE}
+str(M19)
+str(M20)
+str(M21)
+str(M22)
+str(M23)
+str(M24)
+```
+
+- Verificamos la calidad de los datos, utilizando el comando summary(), identificamos las variables con datos faltantes, el número de datos faltantes y calculamos el porcentaje de datos faltantes ((número de datos faltantes/cantidad de registros)x100%):
+
+```{r, echo=FALSE}
+summary(M19)
+summary(M20)
+summary(M21)
+summary(M22)
+summary(M23)
+summary(M24)
+```
+
+## Selecciona el conjunto de datos a utilizar
+
+Columnas objetivo y data frame
+- Identificamos las columnas objetivo (10,11,12,13,102,103) y hacemos un dataframe que las contenga.
+
+```{r, echo=FALSE}
+M22final=M22[c(10:13,102:103)]
+
+print(M22final)
+```
+
